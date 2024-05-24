@@ -5,6 +5,8 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.DocumentFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Calculator extends JFrame {
 
@@ -222,6 +224,12 @@ public class Calculator extends JFrame {
 
         // 모든 JLabel 텍스트 중앙 정렬 및 폰트 설정
         alignLabelsCenterAndSetFont(this.getContentPane(), new Font("NanumGothic", Font.PLAIN, 16));
+
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.exit(0); // プログラムを終了させる
+            }
+        });
     }
 
     private void addEnterKeyAction(JButton button, Action action) {
@@ -253,7 +261,6 @@ public class Calculator extends JFrame {
         }
     }
 
-    public static void main(String[] args) {
-        new Calculator();
-    }
+
+
 }
